@@ -11,7 +11,7 @@ student_counter = 1
 class StudentAPI(MethodView):
     def get(self, student_id=None):
         if student_id is None:
-            return jsonify((students.values()))
+            return jsonify(list(students.values()))
         student = students.get(student_id)
         if not student:
             return jsonify({'error': 'Student not found'}), 404
